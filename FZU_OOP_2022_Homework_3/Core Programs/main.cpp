@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "IP_Switch_From_Dotted_DEC_To_BIN.cpp"
 #include "IP_Switch_From_CIDR_To_DEC_IP_address_block_Max_and_Min.cpp"
 #include "Protocol_number_Switch_From_HEX_To_DEC.cpp"
@@ -116,6 +117,7 @@ int main()
 			cout << "请输入数据匹配结果文件的完整路径，若文件不存在，则会自动新建文件【若不输入（输入Ctrl+Z后回车）则使用上一次输入的匹配结果输出文件】（可含空格，不含引号）：" << endl;
 			if (gets_s(output))strcpy(output_save, output);
 		}
+		long start_time = clock();//记录输入数据之后的时间为开始时间
 		ifstream fp_rule(rule_packet_save, ios::in | ios::_Nocreate);
 		head = (rule*)malloc(sizeof(rule));
 		p = head->create_chain_table(fp_rule);//p指向第一个存有数据的链表
@@ -126,6 +128,9 @@ int main()
 		p->visit_processed_chain_table(p, fp_packet, fp_out);
 		fp_packet.close();
 		fp_out.close();
+		long end_time = clock();//记录关闭文件之后的时间为结束时间
+		double time = 1.0 * (end_time - start_time) / 1000;
+		cout << "本次匹配用时：" << time << "s" << endl;
 		cout << "\n本次数据集和规则集的匹配已完成，匹配结果已输出到指定文件，如需继续匹配其他数据集和规则集，请直接按回车键或输入任意内容后回车，结束程序请输入Ctrl+Z之后回车" << endl;
 	} while (gets_s(judge));
 	system("pause");

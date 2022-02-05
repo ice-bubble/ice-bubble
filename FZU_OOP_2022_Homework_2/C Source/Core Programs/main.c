@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "IP_Switch_From_Dotted_DEC_To_BIN.c"
 #include "IP_Switch_From_CIDR_To_DEC_IP_address_block_Max_and_Min.c"
 #include "Protocol_number_Switch_From_HEX_To_DEC.c"
@@ -49,6 +50,7 @@ int main()
 			printf("请输入数据匹配结果文件的完整路径，若文件不存在，则会自动新建文件【若不输入（输入Ctrl+Z后回车）则使用上一次输入的匹配结果输出文件】（可含空格，不含引号）：\n");
 			gets(output);
 		}
+		long start_time = clock();//记录输入数据之后的时间为开始时间
 		fp_rule = fopen(input, "r");//“r”表示以只读模式打开文件
 		head = (struct rule*)malloc(sizeof(struct rule));//建立链表头结点
 		head->next = NULL;
@@ -101,6 +103,9 @@ int main()
 				break;
 			}
 		}
+		long end_time = clock();//记录关闭文件之后的时间为结束时间
+		double time = 1.0 * (end_time - start_time) / 1000;
+		printf("本次匹配用时：%.3lfs\n", time);
 		printf("\n本次数据集和规则集的匹配已完成，匹配结果已输出到指定文件，如需继续匹配其他数据集和规则集，请直接按回车键或输入任意内容后回车，结束程序请输入Ctrl+Z之后回车\n");
 	} while (gets(judge));
 	return 0;
