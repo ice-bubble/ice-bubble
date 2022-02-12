@@ -2,10 +2,15 @@ int rule_match(unsigned int ip0, unsigned int ip1, int d0, int d1, int x, unsign
 {
 	int c = 0;
 	if (ip0 >= ip0min && ip0 <= ip0max)c++;
+	else return 0;
 	if (ip1 >= ip1min && ip1 <= ip1max)c++;
+	else return 0;
 	if (d0 >= d01 && d0 <= d02)c++;
+	else return 0;
 	if (d1 >= d11 && d1 <= d12)c++;
+	else return 0;
 	if (x == x0 || x1 == 0)c++;
+	else return 0;
 	if (c == 5)return 1;
 	else return 0;
 }
