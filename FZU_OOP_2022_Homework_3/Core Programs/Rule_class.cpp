@@ -72,11 +72,38 @@ void rule::process_chain_table(rule* p)//访问并处理规则集链表数据
 void rule::process_rule_class(class rule** p, unsigned int ip0min, unsigned int ip0max, unsigned int ip1min, unsigned int ip1max, int d01, int d02, int d11, int d12, int x0, int x1)
 {
 	int oz;
-	if (d11 >= 0 && d11 <= 50 && d12 >= 0 && d12 <= 50)oz = 2;
-	else if (d11 >= 51 && d11 <= 100 && d12 >= 51 && d12 <= 100)oz = 4;
-	else if (d11 >= 101 && d11 <= 150 && d12 >= 101 && d12 <= 150)oz = 6;
-	else if (d11 >= 151 && d11 <= 200 && d12 >= 151 && d12 <= 200)oz = 8;
-	else oz = 10;
+	if (d11 >= 0 && d11 <= 500 && d12 >= 0 && d12 <= 500)oz = 0;
+	else if (d11 > 500 && d12 > 500 && d11 <= 1000 && d12 <= 1000)oz = 1;
+	else if (d11 > 1000 && d12 > 1000 && d11 <= 1500 && d12 <= 1500)oz = 2;
+	else if (d11 > 1500 && d12 > 1500 && d11 <= 2000 && d12 <= 2000)oz = 3;
+	else if (d11 > 2000 && d12 > 2000 && d11 <= 2500 && d12 <= 2500)oz = 4;
+	else if (d11 > 2500 && d12 > 2500 && d11 <= 3000 && d12 <= 3000)oz = 5;
+	else if (d11 > 3000 && d12 > 3000 && d11 <= 3500 && d12 <= 3500)oz = 6;
+	else if (d11 > 3500 && d12 > 3500 && d11 <= 4000 && d12 <= 4000)oz = 7;
+	else if (d11 > 4000 && d12 > 4000 && d11 <= 4500 && d12 <= 4500)oz = 8;
+	else if (d11 > 4500 && d12 > 4500 && d11 <= 5000 && d12 <= 5000)oz = 9;
+	else if (d11 > 5000 && d12 > 5000 && d11 <= 5500 && d12 <= 5500)oz = 10;
+	else if (d11 > 5500 && d12 > 5500 && d11 <= 6000 && d12 <= 6000)oz = 11;
+	else if (d11 > 6000 && d12 > 6000 && d11 <= 6500 && d12 <= 6500)oz = 12;
+	else if (d11 > 6500 && d12 > 6500 && d11 <= 7000 && d12 <= 7000)oz = 13;
+	else if (d11 > 7000 && d12 > 7000 && d11 <= 7500 && d12 <= 7500)oz = 14;
+	else if (d11 > 7500 && d12 > 7500 && d11 <= 8000 && d12 <= 8000)oz = 15;
+	else if (d11 > 8000 && d12 > 8000 && d11 <= 8500 && d12 <= 8500)oz = 16;
+	else if (d11 > 8500 && d12 > 8500 && d11 <= 9000 && d12 <= 9000)oz = 17;
+	else if (d11 > 9000 && d12 > 9000 && d11 <= 9500 && d12 <= 9500)oz = 18;
+	else if (d11 > 9500 && d12 > 9500 && d11 <= 10000 && d12 <= 10000)oz = 19;
+	else if (d11 > 10000 && d12 > 10000 && d11 <= 15000 && d12 <= 15000)oz = 20;
+	else if (d11 > 15000 && d12 > 15000 && d11 <= 20000 && d12 <= 20000)oz = 21;
+	else if (d11 > 20000 && d12 > 20000 && d11 <= 25000 && d12 <= 25000)oz = 22;
+	else if (d11 > 25000 && d12 > 25000 && d11 <= 30000 && d12 <= 30000)oz = 23;
+	else if (d11 > 30000 && d12 > 30000 && d11 <= 35000 && d12 <= 35000)oz = 24;
+	else if (d11 > 35000 && d12 > 35000 && d11 <= 40000 && d12 <= 40000)oz = 25;
+	else if (d11 > 40000 && d12 > 40000 && d11 <= 45000 && d12 <= 45000)oz = 26;
+	else if (d11 > 45000 && d12 > 45000 && d11 <= 50000 && d12 <= 50000)oz = 27;
+	else if (d11 > 50000 && d12 > 50000 && d11 <= 55000 && d12 <= 55000)oz = 28;
+	else if (d11 > 55000 && d12 > 55000 && d11 <= 60000 && d12 <= 60000)oz = 29;
+	else if (d11 > 60000 && d12 > 60000 && d11 <= 65000 && d12 <= 65000)oz = 30;
+	else oz = 100;
 	(*p)->next_arr[oz] = NULL;
 	pr[oz]->next_arr[oz] = *p;
 	pr[oz] = *p;
@@ -86,11 +113,38 @@ void rule::visit_processed_chain_table(rule* p, ifstream& fp_packet, ofstream& f
 	unsigned int ip0, ip1, d0, d1, y, flag, oz;
 	while (fp_packet >> ip0 >> ip1 >> d0 >> d1 >> y)
 	{
-		if (d1 >= 0 && d1 <= 50)oz = 2;
-		else if (d1 <= 100)oz = 4;
-		else if (d1 <= 150)oz = 6;
-		else if (d1 <= 200)oz = 8;
-		else oz = 10;
+		if (d1 >= 0 && d1 <= 500)oz = 0;
+		else if (d1 <= 1000)oz = 1;
+		else if (d1 <= 1500)oz = 2;
+		else if (d1 <= 2000)oz = 3;
+		else if (d1 <= 2500)oz = 4;
+		else if (d1 <= 3000)oz = 5;
+		else if (d1 <= 3500)oz = 6;
+		else if (d1 <= 4000)oz = 7;
+		else if (d1 <= 4500)oz = 8;
+		else if (d1 <= 5000)oz = 9;
+		else if (d1 <= 5500)oz = 10;
+		else if (d1 <= 6000)oz = 11;
+		else if (d1 <= 6500)oz = 12;
+		else if (d1 <= 7000)oz = 13;
+		else if (d1 <= 7500)oz = 14;
+		else if (d1 <= 8000)oz = 15;
+		else if (d1 <= 8500)oz = 16;
+		else if (d1 <= 9000)oz = 17;
+		else if (d1 <= 9500)oz = 18;
+		else if (d1 <= 10000)oz = 19;
+		else if (d1 <= 15000)oz = 20;
+		else if (d1 <= 20000)oz = 21;
+		else if (d1 <= 25000)oz = 22;
+		else if (d1 <= 30000)oz = 23;
+		else if (d1 <= 35000)oz = 24;
+		else if (d1 <= 40000)oz = 25;
+		else if (d1 <= 45000)oz = 26;
+		else if (d1 <= 50000)oz = 27;
+		else if (d1 <= 55000)oz = 28;
+		else if (d1 <= 60000)oz = 29;
+		else if (d1 <= 65000)oz = 30;
+		else oz = 100;
 		for (p = head, flag = 0; p; p = p->next_arr[oz])
 		{
 			if (rule_match(ip0, ip1, d0, d1, y, p->ip0min, p->ip0max, p->ip1min, p->ip1max, p->d01, p->d02, p->d11, p->d12, p->x0, p->x1))
@@ -102,7 +156,7 @@ void rule::visit_processed_chain_table(rule* p, ifstream& fp_packet, ofstream& f
 		}
 		if (!flag)
 		{
-			for (p = head, flag = 0; p; p = p->next_arr[10])
+			for (p = head, flag = 0; p; p = p->next_arr[100])
 			{
 				if (rule_match(ip0, ip1, d0, d1, y, p->ip0min, p->ip0max, p->ip1min, p->ip1max, p->d01, p->d02, p->d11, p->d12, p->x0, p->x1))
 				{
