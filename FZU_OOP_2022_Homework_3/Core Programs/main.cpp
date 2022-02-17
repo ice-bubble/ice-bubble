@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "Rule_class.cpp"
+#include "Rule_class.h"
+#include "Process_Rule_class.cpp"
 using namespace std;
 
 int main()
