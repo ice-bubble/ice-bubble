@@ -10,19 +10,19 @@ class rule* rule::Process_Rule_class(rule* p, unsigned int ip0min, unsigned int 
 	if (x1 == 0)
 	{
 		p->next_arr[0] = NULL;
-		pr[0]->next = p;
+		pr[0]->next_arr[0] = p;
 		pr[0] = p;
 		if (d11 >= 0 && d11 <= 50)
 		{
 			p->next_arr[2] = NULL;
-			pr[2]->next = p;
+			pr[2]->next_arr[2] = p;
 			pr[2] = p;
 		}
 	}
 	else
 	{
 		p->next_arr[1] = NULL;
-		pr[1]->next = p;
+		pr[1]->next_arr[1] = p;
 		pr[1] = p;
 	}
 
