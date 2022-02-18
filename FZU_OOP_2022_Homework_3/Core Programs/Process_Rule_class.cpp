@@ -139,7 +139,7 @@ void rule::visit_processed_chain_table(rule* p, ifstream& fp_packet, ofstream& f
 				break;
 			}
 		}
-		if (!flag)
+		if (!flag && oz != 100)
 		{
 			for (p = head, flag = 0; p; p = p->next_arr[100])
 			{
