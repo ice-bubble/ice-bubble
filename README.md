@@ -20,7 +20,7 @@ Here are some ideas to get you started:
 
 [![Anurag's GitHub stats](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=ice-bubble&show_icons=true&count_private=true)](https://github.com/ice-bubble)
 [![Top Langs](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=ice-bubble)](https://github.com/ice-bubble)
-[![Readme Card](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=ice-bubble&repo=ice-bubble)](https://github.com/ice-bubble/ice-bubble)
+
 [![Readme Card](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=ice-bubble&repo=LiteCompiler)](https://github.com/ice-bubble/LiteCompiler)
 
 - 🔭 I’m currently working on ...
